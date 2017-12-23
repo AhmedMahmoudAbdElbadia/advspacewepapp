@@ -12,12 +12,10 @@ export class AdvspaceService {
   user: string;
   apiKey: string;
   http: any;
-  static get parameters() {
-    return [Http];
-}
 
-  constructor(http) {
-    this.http =http;
+
+  constructor(private https:Http) {
+    this.http =https;
     this.apiKey='klpJFMrBlAESRbeHMJd0fMG16e6e_8ik';
     this.user='https://api.mlab.com/api/1/databases/advspaceapp/collections/user';
     this.advrequest ='https://api.mlab.com/api/1/databases/advspaceapp/collections/request';
