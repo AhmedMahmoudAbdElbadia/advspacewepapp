@@ -1,0 +1,90 @@
+
+<!-- <fixedplugin-cmp></fixedplugin-cmp> -->
+<div class="wrapper" *ngIf="us" >
+   
+        <div class="sidebar" #sidebar data-background-color="white" data-active-color="danger" >
+            <!-- <sidebar-cmp ></sidebar-cmp> -->
+            <div class="sidebar-wrapper" style="background-color:midnightblue; text-align:center ">
+                <div class="logo">
+                    <a class="simple-text">
+                        <div class="logo-img">
+                            <img src="../../assets/img/event.jpg" alt="">
+                        </div>
+                        Event Design
+                    </a>
+                </div>
+              
+                <p style="color:white">{{comanyname}}</p>
+                <!-- <div class="card card-user" style="height:80px">
+                    
+                    <div class="content">
+                        <div class="author">
+                          
+                          <h4 class="title">Chet Faker<br />
+                             <a href="#"><small>@chetfaker</small></a>
+                          </h4>
+                        </div>
+                      
+                    </div>
+                    <hr>
+                    
+                </div> -->         
+                       
+                <ul  class="nav">
+                    
+                  
+                                               
+                    <li *ngFor="let menuItem of menuItems"  routerLinkActive="active" class="{{menuItem.class}}" >
+                   
+                            <a [routerLink]="[menuItem.path]">
+                            <i class="{{menuItem.icon}}"></i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+            
+                       
+                    </li>
+                  
+                            <li >
+                                    <a (click)="SignOut()">
+                                        <i ></i>
+                                        <p>تسجيل خروج</p>
+                                    </a>
+                        
+                                </li> 
+                </ul>
+            
+                
+                 
+            </div>
+        </div>
+        <div class="main-panel" *ngIf="us">
+           
+            <div class="content"> 
+              
+                <router-outlet></router-outlet>
+            </div>
+            <footer-cmp></footer-cmp>
+        </div>
+       
+      </div>  
+      
+      
+      <!-- <div class="container" *ngIf="!us">
+           
+            <div class="wrapper" *ngIf="us" >
+   
+        <div class="sidebar" #sidebar data-background-color="white" data-active-color="danger" >
+            <!-- <sidebar-cmp ></sidebar-cmp> -->
+            
+       
+        <div   *ngIf="!us">
+            
+            <div class="content"> 
+              <router-outlet></router-outlet>
+              
+            </div>
+     
+        </div>
+       
+               <!-- /container -->
+     

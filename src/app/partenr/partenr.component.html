@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row">
+ 
+      
+      <div class="tab_container">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1" style="background:midnightblue;"><i class="fa fa-pencil-square-o"></i><span>ارسال عرض سعر جديد</span></label>
+  
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2" style="background: #F2610B;" ><i class="fa fa-pencil-square-o"></i><span>عروض السعر الموافق عليها من الشريك</span></label>
+  
+        <section id="content1" class="tab-content">
+                <div class="row" style="text-align:center">
+            <div class="col-md-6 col-md-offset-3">
+          <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+              aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{width:progress.percentage+'%'}">
+              {{progress.percentage}}%</div>
+          </div>
+          <label class="btn btn-default btn-file lblbrowse"><input style="margin:0px;" type="file"
+            (change)="selectFile($event)">Browse.....</label>
+  
+            
+          
+           
+          <button class="btn btnUpload" [disabled]="!selectedFiles"
+            (click)="upload()">Upload</button>
+       
+            </div>
+            
+        </div>
+    
+        
+        </section>
+  
+        <section id="content2" class="tab-content" >
+            <div *ngFor="let p of PartnerQuotationAccepted" class="card" >
+                
+           
+          
+          <p class=" text-center">
+          
+<p class=" text-center">{{p.Name}} : الاسم </p>
+<p class=" text-center" >{{p.DateSend}} : تاريخ الموافقة</p>
+  <a class=" text-center" href="{{p.DownLoadUrl}}" target="_blank"><p class=" text-center" >تحميل</p></a>
+
+<hr>
+        
+                                      </div>
+<!--                                     
+          <div class="panel panel-primary">
+            <div class="panel-heading">List of Files</div>
+            <div *ngFor="let file of fileUploads | async">
+              <div class="panel-body">
+              <a href="{{file.url}}"  target="_blank"> {{file.name}}</a>
+              </div>
+            </div>
+          </div> -->
+        
+        </section>
+  
+        <section id="content3" class="tab-content">
+            <div *ngFor="let req of userrequestesPaid" class="card">
+                
+           
+          <h1  class="head text-center">بيانات الشركة</h1>
+          <p class=" text-center">
+<p class=" text-center">{{req.CompanyName}} : اسم الشركة </p>
+<p class=" text-center">{{req.CompanyAddress}} : عنوان الشركة </p>
+<p class=" text-center">{{req.CompanyType}} : نشاط الشركة </p>
+<p class=" text-center">{{req.Email}} : البريد الالكتروني </p>
+<p class=" text-center">{{req.PhoneNum}} : رقم الجوال للتواصل </p>
+<hr>
+<h1 class=" text-center">  بيانات الاعلان المطلوب</h1>
+          <p class=" text-center">
+              المدينة : {{req.City}}
+               </p>
+      <p class=" text-center">
+       بيئة الاعلان : {{req.Advplace}}
+      </p>
+      <p class=" text-center">
+            نوع الاعلان : {{req.AdvType}}
+           </p>
+           <p class=" text-center">
+                تاريخ بداية الاعلان : {{req.StartDate}}
+               </p>
+               <p class=" text-center">
+                    تاريخ نهاية الاعلان : {{req.FinishDate}}
+                   </p>
+                                              <p class="text-center">
+                                    </p> </div>
+        
+        </section>
+  
+     
+  
+      </div>
+
+
+
+
+</div>
+
+</div>

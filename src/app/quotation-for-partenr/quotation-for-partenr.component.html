@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+   
+        
+        <div class="tab_container">
+          <input id="tab1" type="radio" name="tabs" checked>
+          <label for="tab1" style="background:midnightblue;"><i class="fa fa-pencil-square-o"></i><span>Quotations</span></label>
+    
+          <input id="tab2" type="radio" name="tabs">
+          <label for="tab2" style="background: #F2610B;" ><i class="fa fa-pencil-square-o"></i><span>Compeleted Quotations</span></label>
+    
+          <section id="content1" class="tab-content">
+            <div *ngFor="let file of PartnerQuotationWaiting; let i=index" class="card">
+              
+        <p class=" text-center">
+<p #name class=" text-center">File Name : {{file.Name}} </p>
+<p class=" text-center"> Date of Send : {{file.DateSend}} </p>
+<p></p>
+
+<a style="text-align:center" href="{{file.DownLoadUrl}}" target="_blank">View</a>
+<br>
+<br>
+<br>
+ <button (click)="SignatureAgree(file.Name)"  class="btn btn-primary">توقيع بالموافقة</button>
+             </div>
+
+          </section>
+    
+          <section id="content2" class="tab-content" >
+              <div *ngFor="let file of PartnerQuotationCompeleted" class="card">
+                  
+             
+
+            <p class=" text-center">
+              <p #name class=" text-center">File Name : {{file.Name}} </p>
+              <p class=" text-center"> Date of Accepted : {{file.DateAccepted}} </p>
+              <p></p>
+              
+              <a style="text-align:center" href="{{file.DownLoadUrl}}" target="_blank">View</a>
+                 </div>
+  <!--                                     
+            <div class="panel panel-primary">
+              <div class="panel-heading">List of Files</div>
+              <div *ngFor="let file of fileUploads | async">
+                <div class="panel-body">
+                <a href="{{file.url}}"  target="_blank"> {{file.name}}</a>
+                </div>
+              </div>
+            </div> -->
+          
+          </section>
+    
+          <section id="content3" class="tab-content">
+          
+          
+          </section>
+    
+       
+    
+        </div>
+  
+  
+  
+  
+  </div>
+  
+  </div>
+  

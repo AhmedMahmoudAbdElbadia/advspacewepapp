@@ -1,0 +1,29 @@
+<div class="container-fluid" style="margin-top:200px;">
+        <div class="row" style="text-align:center" *ngIf="!t">
+                <div class="col-md-6 col-md-offset-3">
+            <div class="card">
+                <div class="content">
+            <form  #form="ngForm" (ngSubmit)="SignIn(email,pass)">
+                <img style="width:200px; height:200px; margin-bottom:10px" src="../../assets/img/event.jpg">
+                    <div class="form-group">
+                        
+                            <label for="validationDefault03" >البريد الالكتروني</label>
+                            <input type="email" #email class="form-control" required  id="validationDefault03" placeholder="البريد الالكتروني" >
+                            <p  style="color:red" *ngIf="emailinput">{{emailalert}}</p>
+                            
+                        </div>
+                        <div class="form-group">
+                                <label for="validationDefault04" >كلمة المرور</label>
+                                <input type="password" #pass class="form-control" id="validationDefault04" placeholder="كلمة المرور" required>
+                                <p  style="color:red" *ngIf="passinput">{{passalert}}</p>
+                        </div>
+                    <button type="submit" class="btn btn-primary">تسجيل دخول</button><hr>
+                    <button  (click)="GoToRegisterPage()" class="btn btn-danger">انشاء مستخدم جديد</button>
+             </form>
+                </div>
+                </div>
+            </div>
+        </div>
+  
+    </div>
+

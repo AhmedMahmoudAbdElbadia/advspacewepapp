@@ -1,0 +1,58 @@
+<div class="container-fluid" style="margin-top:200px;">
+    <div class="row" style="text-align:center" *ngIf="!t">
+            <div class="col-md-6 col-md-offset-3">
+        <div class="card">
+            <div class="content">
+               
+                <label style="color:red" >يفضل التسجيل بالبريد الالكتروني الرسمي للمؤسسة</label>
+                
+        <form #form="ngForm" (ngSubmit)="createUser(email,pass,companyname,companyaddress,companytype,phonenum)">
+           
+            <img style="width:200px; height:200px; margin-bottom:10px" src="../../assets/img/event.jpg">
+          
+                <div class="form-group">
+                        <label for="email" >البريد الالكتروني</label>
+                        <input type="email" #email class="form-control"   id="validationDefault03" placeholder="البريد الالكتروني" required>
+                    <p  style="color:red" *ngIf="emailinput">{{emailalert}}</p>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                            <label for="validationDefault04" >كلمة المرور</label>
+                            <input type="password" #pass class="form-control"  id="validationDefault04" placeholder="كلمة المرور" required>
+                            <p  style="color:red" *ngIf="passinput">{{passalert}}</p>
+                        </div>
+                        <hr>
+                    <div class="form-group">
+                        <label for="validationDefault04" >اسم الشركة</label>
+                        <input type="text" #companyname class="form-control" id="validationDefault05" placeholder="اسم الشركة" required>
+                        <p  style="color:red" *ngIf="companynameinput">{{companynamealert}}</p>
+                    </div>
+                    <hr>
+                <div class="form-group">
+                    <label for="validationDefault04" >عنوان الشركة</label>
+                    <input type="text" #companyaddress class="form-control" id="validationDefault06" placeholder="عنوان الشركة" required>
+                    <p   style="color:red" *ngIf="companyaddressinput">{{companyaddressalert}}</p>
+                </div>
+                <hr>
+            <div class="form-group">
+                <label for="validationDefault04">نشاط الشركة</label>
+                <input type="text"#companytype class="form-control" id="validationDefault07" placeholder="نوع الشركة" required>
+                <p  style="color:red" *ngIf="companytypeinput">{{companytypealert}}</p>
+                
+            </div>
+            <hr>
+        <div class="form-group">
+            <label for="validationDefault05">رقم الجوال</label>
+            <input type="number" #phonenum class="form-control" id="validationDefault08" placeholder="رقم الجوال" required>
+            <p  style="color:red" *ngIf="phonenuminput">{{phonenumalert}}</p>
+        </div>
+                 <button type="submit"  class="btn btn-danger">انشاء مستخدم جديد</button>
+         </form>
+        
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

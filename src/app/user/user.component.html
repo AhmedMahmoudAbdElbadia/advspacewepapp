@@ -1,0 +1,182 @@
+
+          <div class="container-fluid">
+                <div class="row">
+    
+
+    
+                        <div class="tab_container">
+                                <input id="tab1" type="radio" name="tabs" checked>
+                                <label for="tab1" style="background:midnightblue;"><i class="fa fa-pencil-square-o"></i><span>تأكيد الحجز </span></label>
+                          
+                                <input id="tab2" type="radio" name="tabs">
+                                <label for="tab2" style="background: #F2610B;"><i class="fa fa-pencil-square-o"></i><span>قيد المراجعة</span></label>
+                          
+                                <input id="tab3" type="radio" name="tabs">
+                                <label for="tab3" style="background:midnightblue;"><i class="fa fa-bar-chart-o"></i><span>الموافق عليها</span></label>
+                          
+                          
+                                <section id="content1" class="tab-content">
+                                 
+                                        <div *ngFor="let req of userrequestesNotActive" class="card">
+                                                
+                                                                             
+                                                                              <h3 class="head text-center">{{req.CompanyName}}<sup>™
+                                                                                  </sup> Profile</h3>
+                                                                                  <p class="narrow text-center">
+                                                                                      المدينة : {{req.City}}
+                                                                                       </p>
+                                                                              <p class="narrow text-center">
+                                                                               بيئة الاعلان : {{req.Advplace}}
+                                                                              </p>
+                                                                              <p class="narrow text-center">
+                                                                                    نوع الاعلان : {{req.AdvType}}
+                                                                                   </p>
+                                                                                   <p class="narrow text-center">
+                                                                                        تاريخ بداية الاعلان : {{req.StartDate}}
+                                                                                       </p>
+                                                                                       <p class="narrow text-center">
+                                                                                            تاريخ نهاية الاعلان : {{req.FinishDate}}
+                                                                                           </p>
+                                                                              <p class="text-center">
+                                                                        <a  (click)="UpdateRquestToWaiting(req._id.$oid)" class="btn btn-success btn-outline-rounded green">تاكيد الحجز <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                                                                    </p> </div>
+                                
+                                </section>
+                          
+                                <section id="content2" class="tab-content">
+                                        <div *ngFor="let req of userrequestesWaiting" class="card">
+                                                
+                                                                             
+                                                                              <h3 class="head text-center">{{req.CompanyName}}<sup>™
+                                                                                  </sup> Profile</h3>
+                                                                                  <p class="narrow text-center">
+                                                                                      المدينة : {{req.City}}
+                                                                                       </p>
+                                                                              <p class="narrow text-center">
+                                                                               بيئة الاعلان : {{req.Advplace}}
+                                                                              </p>
+                                                                              <p class="narrow text-center">
+                                                                                    نوع الاعلان : {{req.AdvType}}
+                                                                                   </p>
+                                                                                   <p class="narrow text-center">
+                                                                                        تاريخ بداية الاعلان : {{req.StartDate}}
+                                                                                       </p>
+                                                                                       <p class="narrow text-center">
+                                                                                            تاريخ نهاية الاعلان : {{req.FinishDate}}
+                                                                                           </p>
+                                                                              <p class="text-center">
+                                                                   
+                                                                          
+                                                                    </p>  
+                                                                     
+                                                                     </div>
+                                </section>
+                          
+                                <section id="content3" class="tab-content">
+                                        <div *ngFor="let req of userrequestesAcceptedFilterDate" class="card">
+                                                
+                                                                             
+                                                                              <h3 class="head text-center">{{req.CompanyName}}<sup>™
+                                                                                  </sup> Profile</h3>
+                                                                                  <p class="narrow text-center">
+                                                                                      المدينة : {{req.City}}
+                                                                                       </p>
+                                                                              <p class="narrow text-center">
+                                                                               بيئة الاعلان : {{req.Advplace}}
+                                                                              </p>
+                                                                              <p class="narrow text-center">
+                                                                                    نوع الاعلان : {{req.AdvType}}
+                                                                                   </p>
+                                                                                   <p class="narrow text-center">
+                                                                                        تاريخ بداية الاعلان : {{req.StartDate}}
+                                                                                       </p>
+                                                                                       <p class="narrow text-center">
+                                                                                            تاريخ نهاية الاعلان : {{req.FinishDate}}
+                                                                                           </p>
+                                                                                          
+                                                                                           <div class="funkyradio">
+                                                                                                
+                                                                                                    <div class="funkyradio-success">
+                                                                                                        <input type="radio" name="radio"(change)="state()" #radiovisit id="radio3" />
+                                                                                                        <label  for="radio3">اختيار تصميمي الخاص</label>
+                                                                                                    </div>
+                                                                                                    <div class="check-element animate-show-hide" *ngIf="st">
+                                                                                                            <div class="row" style="text-align:center">
+                                                                                                                    <div class="col-md-6 col-md-offset-3">
+                                                                                                                  <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+                                                                                                                    <div class="progress-bar progress-bar-info progress-bar-striped"
+                                                                                                                      role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                                                                                                                      aria-valuemin="0" aria-valuemax="100"
+                                                                                                                      [ngStyle]="{width:progress.percentage+'%'}">
+                                                                                                                      {{progress.percentage}}%</div>
+                                                                                                                  </div>
+                                                                                                                  <label class="btn btn-default btn-file lblbrowse" style=" font-weight: 700;
+                                                                                                                  font-size: 15px;
+                                                                                                                  display: block;
+                                                                                                                  float: left ;
+                                                                                                                  width: 50%;
+                                                                                                                  padding: 1.5em;
+                                                                                                                  color: white;
+                                                                                                                  cursor: pointer;
+                                                                                                                  text-decoration: none;
+                                                                                                                  text-align: center;
+                                                                                                                  background: #F2610B;"><input style="margin:0px;" type="file"
+                                                                                                                    (change)="selectFile($event)">اختار التصميم من جهازك..</label>
+                                                                                                          
+                                                                                                                    
+                                                                                                                  
+                                                                                                                   
+                                                                                                                  <button class="btn btnUpload" style="background-color: #F2610B;
+                                                                                                                  color:white;
+                                                                                                                  font-weight:  bold;
+                                                                                                                  width: 50%;
+                                                                                                                  height: 67px;" [disabled]="!selectedFiles"
+                                                                                                                    (click)="upload(req._id.$oid)">رفع التصميم</button>
+                                                                                                               
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                </div>
+                                                                                                          </div>
+        
+                                                                                                    
+                                                                                                    <div class="funkyradio-danger">
+                                                                                                        <input type="radio" name="radio" (change)="state2()" #radiocall id="radio4" />
+                                                                                                        <label for="radio4">طلب تصميم جديد</label>
+                                                                                                    </div>
+                                                                                                    <div class="check-element animate-show-hide" *ngIf="st2">
+                                                                                                     سيتم التواصل معك من مندوبنا للاتفاق على التصميم
+                                                                                                          </div>
+                                                                                               
+                                                                                                </div>
+                                                                              <p class="text-center">
+                                                                                    <a (click)="deisgn()" class="btn btn-success btn-outline-rounded green" *ngIf="!deisgndone">اتمام الطلب<span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                                                                                    
+                                                                                    <a (click)="UpdateRquestToWaiting(req._id.$oid)" class="btn btn-danger btn-outline-rounded " *ngIf="deisgndone">الدفع <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                                                                              
+                                                                                </p>  
+                                                                                
+                                                                     </div>
+                                </section>
+                          
+                                <section id="content4" class="tab-content">
+                             
+                                </section>
+                          
+                                <section id="content5" class="tab-content">
+                                  <h3>Headline 5</h3>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                                      
+                                </section>
+                              </div>
+                        
+                        
+                        
+  
+    
+    </div>
+    
+    </div>
+  
+                       

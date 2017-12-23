@@ -1,0 +1,27 @@
+<div class="row" style="text-align:center">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="card"  style="color:black">
+            <div class="content">
+          <form #form="ngForm" (ngSubmit)="updateuserstate(type.value)">
+                    
+      <div class="form-group" >
+          <label for="validationDefault03" >اسم الشركة</label>
+        <select #city style="width:100%; height:30px;" (change)="getid(city.value)" >
+           
+          <option  *ngFor="let res of users;">{{res.CompanyName}}</option>
+         
+        </select>
+        </div>
+        <div class="form-group" >
+            <label for="validationDefault03" >صلاحياته</label>
+          <select #type style="width:100%; height:30px;" >
+            <option>Admin</option>
+            <option>Client</option>
+            <option>Partenr</option>
+          </select>
+          </div>
+                <button type="submit"  class="btn btn-primary">حفظ</button>
+                          </form>
+            </div>
+        </div>
+    </div>
